@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMU ACADEMIC HELP</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <script src="https://kit.fontawesome.com/5ce0c7293f.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <section id="contact">
+
+        <div id="contact_text"><i class="fas fa-address-book"></i> Contact </div>
+
+        <div id="contact-container">
+
+            <div id="contact-form-container">
+                <form id="contact-form">
+                    <input id="input-name" name="name" type="text" placeholder="Your Name">
+                    <input id="input-email" name="input-email" type="text" required placeholder="Your Email">
+                    <textarea id="input-message" name="input-message" rows="2" cols=40 placeholder="Message"></textarea>
+                    <button class="sub-btn" type="submit">SEND MESSAGE</button>
+                </form>
+            </div>
+            <div id="my-details-container">
+
+                <h3> Get In touch </h3>
+                <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a type specimen book. </p>
+
+                <h3> 67th Milestone, NH 48, Kapriwas, Haryana 122413 </h3>
+                <div class="my-details-info-container">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Delhi, India</span>
+                </div>
+                <div class="my-details-info-container">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>7838755555</span>
+                </div>
+                <div class="my-details-info-container">
+                    <i class="far fa-envelope"></i>
+                    <span>bmlacademichelp@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+
+    
+<script>
+    var save_detail = []
+class save {
+    constructor(name, email, message) {
+        this.name = name
+        this.email = email
+        this.message = message
+    }
+    disp() {
+        console.log("Name:" + this.name + ",email:" + this.email + ",message:" + this.message)
+    }
+
+}
+
+
+    let input_name = document.getElementById("input-name").value
+    let input_email = document.getElementById("input-email").value
+    let input_message = document.getElementById("input-message").value
+
+    let obj = new save(input_name, input_email, input_message)
+    save_detail.push(obj)
+
+
+    for (let obj of save_detail) {
+        obj.disp()
+    }
+
+
+
+
+</script>
+
+</html>

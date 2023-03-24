@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Quick Quiz - Play</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="/css/quiz.css" />
+</head>
+
+<body>
+  <section class="header">
+    <nav>
+      <div class="nav-links">
+        <ul>
+          <li><a href="/practice">BACK</a></li>
+          <li><a href="/">HOME</a></li>
+          <li><a href="/practice">PRACTICE</a></li>
+
+        </ul>
+      </div>
+    </nav>
+  </section>
+
+  {{#each questions}}
+  <div class="container">
+    <div id="game" class="justify-center flex-column">
+      <div id="hud">
+        <div id="hud-item">
+          <p class="hud-prefix">
+            Question
+          </p>
+          {{!-- <h1 class="hud-main-text" id="questionCounter">1</h1> --}}
+        </div>
+        <div id="hud-item">
+          {{!-- <p class="hud-prefix">
+            Score
+          </p>
+          <h1 class="hud-main-text" id="score">
+            0
+          </h1> --}}
+        </div>
+      </div>
+
+
+
+      <h2 id="question">{{question}}</h2>
+      <div class="choice-container">
+        <p class="choice-prefix">A</p>
+        <p class="choice-text" data-number="1">{{choice1}}</p>
+      </div>
+      <div class="choice-container">
+        <p class="choice-prefix">B</p>
+        <p class="choice-text" data-number="2">{{choice2}}</p>
+      </div>
+      <div class="choice-container">
+        <p class="choice-prefix">C</p>
+        <p class="choice-text" data-number="3">{{choice3}}</p>
+      </div>
+      <div class="choice-container">
+        <p class="choice-prefix">D</p>
+        <p class="choice-text" data-number="4">{{choice4}}</p>
+      </div>
+    
+    
+      <a id="next" href="{{link}}" >NEXT</a>
+
+      
+    </div>
+    
+  </div>
+
+  
+
+
+  {{!--
+  <script src="../JS Files/quiz.js"></script>
+  --}}
+
+  <script>
+
+    const question = document.getElementById("question");
+    const choices = Array.from(document.getElementsByClassName("choice-text"));
+    const questionCounterText = document.getElementById("questionCounter");
+    const scoreText = document.getElementById("score");
+
+
+
+
+
+
+    startGame = () => {
+
+
+      choices.forEach(choice => {
+        choice.addEventListener("click", e => {
+
+          const selectedChoice = e.target;
+          console.log(e.target)
+          const selectedAnswer = selectedChoice.dataset["number"];
+
+          //const classToApply =
+          //selectedAnswer == currentQuestion.answer ? "correct" : "incorrect"; 
+
+          const classToApply = selectedAnswer == {{answer}} ? "correct" : "incorrect";
+         
+
+          selectedChoice.parentElement.classList.add(classToApply);
+
+          setTimeout(() => {
+            selectedChoice.parentElement.classList.remove(classToApply);
+
+          }, 200000);
+        });
+      });
+
+    };
+
+    startGame();
+
+  </script>
+  {{/each}}
+</body>
+
+</html>
